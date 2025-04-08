@@ -9,7 +9,7 @@ import java.util.Scanner;
 @Component
 public class MyCommandLineRunner implements CommandLineRunner {
     private Scanner scanner = new Scanner(System.in);
-    private CommandExecutor commandExecutor;
+    private CommandExecutor commandExecutor; //command registry
 
     @Autowired
     public MyCommandLineRunner(CommandExecutor commandExecutor) {
@@ -22,9 +22,9 @@ public class MyCommandLineRunner implements CommandLineRunner {
         while (exit) {
             System.out.println("Enter a command: ");
             String command = scanner.nextLine();
-            String[] commandParts = command.split(" ");
+            String[] commandParts = command.split(" "); //returns an array of strings
             if (command.equals("exit")) {
-                exit = false;
+                return;
             }
 
             commandExecutor.executeCommand(commandParts);

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class SettleUpGroup implements Command {
     @Autowired
-    private SettleUpController settleUpController;
+    private SettleUpController settleUpController; //Main Logic
     // Command should look like this : "SettleUpGroup 1"
     @Override
     public boolean matches(String[] command) {

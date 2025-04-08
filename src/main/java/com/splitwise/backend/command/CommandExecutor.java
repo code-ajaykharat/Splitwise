@@ -3,35 +3,24 @@ package com.splitwise.backend.command;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 @Component
 public class CommandExecutor {//factory
-    private List<Command> commands;
-    private SettleUpGroup settleUpGroup;
+    private Map<String, Command> commands;
 
     @Autowired
-    public CommandExecutor(SettleUpGroup settleUpGroup){
-        this.commands = new ArrayList<>();
-        this.settleUpGroup = settleUpGroup;
-        commands.add(settleUpGroup);
+    public CommandExecutor(Map<String, Command> cmds) { //spring automatically injects all the beans of type Command (key is the name of the bean)
+        this.commands = cmds;
     }
 
-    public void addCommand(Command command) {
-        commands.add(command);
-    }
-
-    public void removeCommand(Command command) {
-        commands.remove(command);
-    }
-
-    public void executeCommand(String[] command){
-        for(Command c: commands){
-            if(c.matches(command)){
-                c.execute(command);
-                break;
-            }
+    public void executeCommand(String[] command) {
+        String commandName = command[0];
+        Command cmd = commands.get(commandName);
+        if (cmd != null) {
+            cmd.execute(command);
+        } else {
+            System.out.println("Command not found");
         }
     }
 
