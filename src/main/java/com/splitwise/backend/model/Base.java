@@ -10,13 +10,13 @@ import java.time.LocalDateTime;
 
 @Getter
 @MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
+@EntityListeners(AuditingEntityListener.class) //step-2
 public abstract class Base {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @CreatedDate
+    @CreatedDate //step-3
     private LocalDateTime createdAt;
 
     @LastModifiedDate

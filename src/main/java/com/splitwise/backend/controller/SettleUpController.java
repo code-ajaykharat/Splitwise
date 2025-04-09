@@ -20,7 +20,7 @@ public class SettleUpController {
     public SettleUpGroupResponse settleUp(SettleUpGroupRequest settleUpGroupRequest) {
         SettleUpGroupResponse settleUpGroupResponse = new SettleUpGroupResponse();
         try{
-            List<Transaction> transactions = settleUpService.settleUp(settleUpGroupRequest.getGroupId());
+            List<Transaction> transactions = settleUpService.settleUpGroup(settleUpGroupRequest.getGroupId());
             settleUpGroupResponse.setTransactions(transactions);
             settleUpGroupResponse.setStatus(ResponseStatus.SUCCESS);
             settleUpGroupResponse.setMessage("Settled up successfully");

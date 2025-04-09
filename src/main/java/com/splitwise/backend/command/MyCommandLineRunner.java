@@ -2,11 +2,13 @@ package com.splitwise.backend.command;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
 @Component
+@Order(1) //to run this class first
 public class MyCommandLineRunner implements CommandLineRunner {
     private Scanner scanner = new Scanner(System.in);
     private CommandExecutor commandExecutor; //command registry

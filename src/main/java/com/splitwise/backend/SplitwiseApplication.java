@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-@EnableJpaAuditing
+@EnableJpaAuditing //step-1
 public class SplitwiseApplication{
     public static void main(String[] args) {
         SpringApplication.run(SplitwiseApplication.class, args);
