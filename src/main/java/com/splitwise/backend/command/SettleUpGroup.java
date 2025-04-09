@@ -24,7 +24,7 @@ public class SettleUpGroup implements Command {
     @Override
     public void execute(String[] command) {
         //take data from command
-        Long groupId = Long.parseLong(command[1]);
+        Long groupId = Long.valueOf(command[1]);
         //create request DTO
         SettleUpGroupRequest request = new SettleUpGroupRequest();
         request.setGroupId(groupId);

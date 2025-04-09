@@ -17,7 +17,7 @@ public class Expense extends Base{
     private User createdBy;
     @ManyToOne
     private Group group;
-    @OneToMany(mappedBy = "expense")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "expense")
     private List<UserExpense> userExpenses;
     @Enumerated(EnumType.STRING)
     private ExpenseType expenseType;
